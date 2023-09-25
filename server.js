@@ -1,16 +1,20 @@
-const http = require('http');
-const path = require('path');
-const fs = require('fs');
-const fsPromises = require('fs').promises;
+// const http = require('http');
+// const path = require('path');
+// const fs = require('fs');
+// const fsPromises = require('fs').promises;
 
-const logEvents= require('./logEvent');
-const EventEmitter = require('events');
-class Emitter extends EventEmitter {};
-const myEmitter = new Emitter();
+// const logEvents= require('./logEvent');
+// const EventEmitter = require('events');
+// class Emitter extends EventEmitter {};
+// const myEmitter = new Emitter();
+const express = require('express');
 const app = express();
 const PORT = process.env.PORT || 3500;
 
-app.listen(PORT, ()=> console.log(`Server running on port ${PORT}`))
+app.get('/', (req,res) => {
+    res.send('Hello World!')
+});
+app.listen(PORT, () => console.log(`Server running on port ${PORT}`))
 
 
 // const serveFile = async (filePath, contentType, response) => {
